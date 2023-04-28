@@ -12,7 +12,7 @@ GLMakie = "e9467ef8-e4e7-5192-8a1a-b1aee30e663a"
 LaTeXStrings = "b964fa9f-0449-5b57-a5c2-d3ea65f4040f"
 MeshViz = "9ecf9c4f-6e5a-4b5e-83ae-06f2c7a661d8"
 Meshes = "eacbb407-ea5a-433e-ab97-5258b1ca43fa"
-MoM_Basics = "af6200c2-e843-4231-b6e3-e104e1f75ada"
+MoM_Basics = "84796d1e-6a74-43fe-971c-cdafebd16eaa"
 MoM_Kernels = "831fc53b-0fa6-4fbb-adc4-fa1e0b19763e"
 
 [compat]
