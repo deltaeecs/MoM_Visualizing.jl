@@ -16,7 +16,7 @@ export  plotSource,
         clip_imag,
         plotSparseArrayPattern
 
-theme2d     =   Theme(font = "Times New Roman Bold", fontsize = 8.5)
+theme2d     =   Theme(font = "Times New Roman Bold", fontsize = 8.5, figure_padding = (5, 10, 5, 10))
 linestyles  =   [:solid, :dashdotdot, :dash, :dot, :dashdot]
 markers     =   [:circle, :star4, :diamond, :rtriangle, :rect, :pentagon, :cross, :star5]
 colormap    =   colorschemes[:Set1_9][[2, 5, 4, 9, 1, 8, 3, 6, 7]]
