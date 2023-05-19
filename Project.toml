@@ -19,7 +19,7 @@ MoM_Basics = "84796d1e-6a74-43fe-971c-cdafebd16eaa"
 MoM_Kernels = "831fc53b-0fa6-4fbb-adc4-fa1e0b19763e"
 
 [compat]
-CairoMakie = "0.0 - 0.1"
+CairoMakie = "0.0 - 0.20"
 CircularArrays = "1.3 - 1.4"
 ColorSchemes = "3.20 - 3.30"
 Colors = "0.12 - 0.14"
