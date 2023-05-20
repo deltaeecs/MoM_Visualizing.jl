@@ -45,6 +45,8 @@ jobs:
       statuses: write
     steps:
       - uses: actions/checkout@v2
+      - name: Install binary dependencies
+        run: sudo apt-get update && sudo apt-get install -y xorg-dev mesa-utils xvfb libgl1 freeglut3-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libxext-dev
       - uses: julia-actions/setup-julia@v1
         with:
           version: '1'
@@ -53,6 +55,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: |
+          DISPLAY=:0 xvfb-run -s '-screen 0 1024x768x24'
           julia --project=docs -e '
             using Documenter: DocMeta, doctest
             using MoM_Visualizing
