@@ -33,7 +33,7 @@ MeshViz = "0.7 - 0.8"
 Meshes = "0.28 - 0.30"
 MoM_Basics = "0.0 - 0.2"
 MoM_Kernels = "0.0 - 0.2"
-julia = "1"
+julia = ">= 1.8"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
