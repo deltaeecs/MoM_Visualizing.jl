@@ -1,9 +1,3 @@
-```@meta
-DocTestSetup = quote
-    using MoM_Visualizing
-end
-```
-
 # ![logo](./docs/src/assets/logo.png)
 
 # MoM_Visualizing
