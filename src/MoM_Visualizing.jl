@@ -4,7 +4,7 @@ using GLMakie: draw_fullscreen
 using MoM_Basics
 using LaTeXStrings, CircularArrays
 using Meshes, MeshViz
-using CairoMakie, GLMakie, GLFW, ElectronDisplay
+using CairoMakie, GLMakie, ElectronDisplay
 using Colors, ColorSchemes
 
 export  plotSource,
@@ -24,7 +24,7 @@ markers     =   CircularVector([:circle, :star4, :diamond, :rtriangle, :rect, :p
 colormap    =   CircularVector(colorschemes[:Set1_9][[2, 5, 4, 9, 1, 8, 3, 6, 7]])
 colormap3d  =   ColorScheme(vcat(range(colorant"blue", colorant"gold", length=50), range(colorant"gold", colorant"red", length=50)))
 theme3d     =   Theme(font = "Times New Roman Bold", fontsize = 8.5, figure_padding = (5, 10, 5, 10), 
-                        draw_fullscreen=true, float=true, monitor=GLFW.Monitor, oit=true)
+                        draw_fullscreen=true, float=true, oit=true)
 
 # 点线绘图模板
 include("lines_plot.jl")
