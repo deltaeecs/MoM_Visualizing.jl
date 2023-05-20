@@ -73,7 +73,7 @@ function linesplot(ys::Vector{yT}, labels; xlabel = L"\text{x_label (x_unit)}",
     size_pt = 72 .* size_inches
     f   =   Figure(resolution = size_pt)
     ax  =   createAxis(f[1, 1], xlabel, ylabel; yscale = yscale)
-    xs = 1:100
+    xs  =   1:100
     for i in eachindex(labels)
         xs = 1:length(ys[i])
         lines!(ax, xs, ys[i], linewidth = 1.5, linestyle = linestyles[i],
@@ -188,7 +188,7 @@ function linesplot(ys::Vector{yT}, ys_compare::Vector{yT}, labels, labels_compar
         patchsize = (10, 10), rowgap = 0, colgap = 0, labelsize = 9, bgcolor = :transparent, nbanks = 1,
         framevisible = false, padding = (0., 0., 0., 0.))
     end
-   
+
     current_figure()
 
     f
