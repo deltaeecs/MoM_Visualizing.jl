@@ -2,4 +2,4 @@ using Pkg
 
 Pkg.activate(joinpath(@__DIR__, ".."))
 
-Pkg.add(url = "https://github.com/deltaeecs/IterativeSolvers.jl")
+Pkg.add(url = "https://gitee.com/deltaeecs/IterativeSolvers.jl")
