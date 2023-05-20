@@ -4,7 +4,7 @@ using GLMakie: draw_fullscreen
 using MoM_Basics
 using LaTeXStrings, CircularArrays
 using Meshes, MeshViz
-using CairoMakie, GLMakie, ElectronDisplay
+using CairoMakie, GLMakie
 using Colors, ColorSchemes
 
 export  plotSource,

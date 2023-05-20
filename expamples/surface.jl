@@ -2,7 +2,7 @@
 
 using MoM_Basics, MoM_Kernels
 using MoM_Visualizing
-using CairoMakie, ElectronDisplay
+using CairoMakie
 using LaTeXStrings
 
 SimulationParams.SHOWIMAGE = true
