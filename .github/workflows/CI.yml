@@ -59,7 +59,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: |
-          julia --project=docs -e '
+          xvfb-run julia --project=docs -e '
             using Documenter: DocMeta, doctest
             using MoM_Visualizing
             DocMeta.setdocmeta!(MoM_Visualizing, :DocTestSetup, :(using MoM_Visualizing); recursive=true)
