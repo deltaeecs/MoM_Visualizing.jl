@@ -119,7 +119,7 @@ function linesplot(xs, ys::Vector{yT}, ys_compare::Vector{yT}, labels, labels_co
     for i in eachindex(labels)
         lines!(ax, xs, ys[i], linewidth = 1, linestyle = linestyles[i], label = labels[i], color = colormap[i])
     end
-    for i in eachindex(labels)
+    for i in eachindex(labels_compare)
         j = i+comparestyleoffset
         xs_new, ys_new = get_uni_xsys_sample(xs, ys_compare[i]; spratio = spratio)
         scatter!(ax, xs_new, ys_new, marker = markers[j], markersize = 4, label = labels_compare[i], color = colormap[j])
