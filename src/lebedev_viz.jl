@@ -9,7 +9,7 @@ TBW
 function plot_sphere_with_nodes(;nodes = nothing, colorid = 1, resultDir = "results", filename = "sphere")
     GLMakie.activate!()
     # 单位球面
-    sphere = Sphere(Point3f(0), 0.999)
+    sphere = Sphere(GLMakie.Point3f(0), 0.999)
 
     # 作图参数
     size_in_inches = (4, 3)
@@ -44,7 +44,7 @@ TBW
 function plot_sphere_with_nodes(nodes::Vararg{AbstractMatrix, N}; colorid = 1, marker = markers,  resultDir = "results", filename = "sphere") where N
     GLMakie.activate!()
     # 单位球面
-    sphere = Sphere(Point3f(0), 0.999)
+    sphere = Sphere(GLMakie.Point3f(0), 0.999)
 
     # 作图参数
     size_in_inches = (4, 3)
