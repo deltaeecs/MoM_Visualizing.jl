@@ -1,3 +1,5 @@
+using MoM_Basics:getBFTfromCellT
+using MoM_Kernels:geoElectricJCal
 
 """
 可视化目标与信息（如电流）分布
@@ -12,7 +14,7 @@ function visualizeMesh(meshData, vars = LinRange(0, 1, meshData.geonum); args...
     ax11    =   Axis3(fig[1, 1], aspect = :data; args...)
 
     # 点分布
-    points  =   Meshes.Point.(eachcol(meshData.node))
+    points  =   map(p -> Meshes.Point(p...), eachcol(meshData.node))
 
     # 颜色谱
     # colorscheme    = :rainbow1
