@@ -1,7 +1,8 @@
 module MoM_Visualizing
 
+using LinearAlgebra
 using GLMakie: draw_fullscreen
-using MoM_Basics
+using MoM_Basics, MoM_Kernels
 using LaTeXStrings, CircularArrays
 using Meshes, MeshViz
 using CairoMakie, GLMakie
@@ -15,6 +16,8 @@ export  plotSource,
         plot_sphere_with_nodes,
         plot_sphere_with_nodes!,
         viz_data_in_thetaphi_plane,
+        visualizeMesh,
+        visualizeCurrent,
         clip_imag,
         plotSparseArrayPattern
 
