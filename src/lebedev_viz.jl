@@ -17,7 +17,7 @@ function plot_sphere_with_nodes(;nodes = nothing, colorid = 1, resultDir = "resu
     size_in_pixels = size_in_inches .* dpi
 
     # 画板
-    fig = Figure(resolution = size_in_pixels, fontsize = 3.2/25.4*dpi, theme = theme_light())
+    fig = Figure(size = size_in_pixels, fontsize = 3.2/25.4*dpi, theme = theme_light())
     # 轴图
     ax  = Axis3(fig[1, 1], aspect = :data, )
 
@@ -52,7 +52,7 @@ function plot_sphere_with_nodes(nodes::Vararg{AbstractMatrix, N}; colorid = 1, m
     size_in_pixels = size_in_inches .* dpi
 
     # 画板
-    fig = Figure(resolution = size_in_pixels, fontsize = 3.2/25.4*dpi, theme = theme_light())
+    fig = Figure(size = size_in_pixels, fontsize = 3.2/25.4*dpi, theme = theme_light())
     # 轴图
     ax  = Axis3(fig[1, 1], aspect = :data, )
 
@@ -102,7 +102,7 @@ function viz_data_in_thetaphi_plane(ϕθnodes::Vararg{AbstractMatrix, N}; labels
     colormap    =  colorschemes[:Set1_9][[2, 5, 4, 9, 1, 8, 3, 6, 7]]
 
     # 画板
-    fig =   Figure(resolution = size_pt, fontsize = fontsize)
+    fig =   Figure(size = size_pt, fontsize = fontsize)
     ax  =   CairoMakie.Axis(fig[1, 1], xlabel = xlabel, ylabel = ylabel, yticklabelrotation = π/2,
                     xgridstyle = :dot, ygridstyle = :dot, xgridwidth = 0.5, ygridwidth = 0.5, 
                     xtickalign = 1, ytickalign = 1, xticksize = 3, yticksize = 3, title = title, #xaxisposition = :top,

@@ -4,12 +4,12 @@ using LinearAlgebra
 using GLMakie: draw_fullscreen
 using MoM_Basics, MoM_Kernels
 using LaTeXStrings, CircularArrays
-using Meshes, MeshViz
+using Meshes
 using CairoMakie, GLMakie
 using Colors, ColorSchemes
 
 export  plotSource,
-        linesplot,
+        linesplot, polarplot,
         farfield2D,
         farfield3D,
         convergence_plot,
@@ -31,6 +31,8 @@ theme3d     =   Theme(font = "Times New Roman Bold", fontsize = 8.5, figure_padd
 
 # 点线绘图模板
 include("lines_plot.jl")
+# 极坐标绘图模板
+include("polar_plot.jl")
 
 # 源绘图
 include("Sources.jl")

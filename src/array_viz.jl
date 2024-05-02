@@ -6,7 +6,7 @@ function plotSparseArrayPattern(spa; size_inches = (4, 3), resultDir = "results"
     size_pt     =   72 .* size_inches
 
     # 画板
-    fig =   Figure(resolution = size_pt)
+    fig =   Figure(size = size_pt)
     # 轴
     ax  =    CairoMakie.Axis(fig[1, 1])#, title = title
     heatmap!(ax, spa; colormap = :grayC)

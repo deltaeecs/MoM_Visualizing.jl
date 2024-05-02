@@ -4,21 +4,18 @@ using MoM_Kernels:geoElectricJCal
 """
 可视化目标与信息（如电流）分布
 """
-function visualizeMesh(meshData, vars = LinRange(0, 1, meshData.geonum); args...)
+function visualizeMesh(meshData, vars = LinRange(0, 1, meshData.geonum);
+    size_in_inches = (4, 3.5), dpi = 600, legendlabel = "Current(A/m)", args...)
 
+    GLMakie.activate!()
+    set_theme!(theme3d)
     # 创建画布
-    size_in_inches = (4, 3.5)
-    dpi = 600
     size_in_pixels = size_in_inches .* dpi
-    fig = Figure(resolution = size_in_pixels)
+    fig = Figure(size = size_in_pixels)
     ax11    =   Axis3(fig[1, 1], aspect = :data; args...)
 
     # 点分布
     points  =   map(p -> Meshes.Point(p...), eachcol(meshData.node))
-
-    # 颜色谱
-    # colorscheme    = :rainbow1
-    colormap   = ColorScheme(vcat(range(colorant"blue", colorant"gold", length=50), range(colorant"gold", colorant"red", length=50)))
 
     # 创建网格连接
     # 分别创建三角形、四面体、六面体连接后绘图
@@ -60,7 +57,7 @@ function visualizeMesh(meshData, vars = LinRange(0, 1, meshData.geonum); args...
         hexavars    =   vars[(meshData.trinum + meshData.tetranum + 1):(meshData.geonum)]
     end
 
-    Colorbar(fig[1, 2], limits = (minimum(vars), maximum(vars)), colormap    = colormap3d   , label = "Current(A/m)")
+    Colorbar(fig[1, 2], limits = (minimum(vars), maximum(vars)), colormap    = colormap3d   , label = legendlabel)
     
     # 修改字体大小，轴粗细
     c1 = fig.content[1]
