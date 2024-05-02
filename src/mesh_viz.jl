@@ -11,7 +11,7 @@ function visualizeMesh(meshData, vars = LinRange(0, 1, meshData.geonum);
     set_theme!(theme3d)
     # 创建画布
     size_in_pixels = size_in_inches .* dpi
-    fig = Figure(resolution = size_in_pixels)
+    fig = Figure(size = size_in_pixels)
     ax11    =   Axis3(fig[1, 1], aspect = :data; args...)
 
     # 点分布

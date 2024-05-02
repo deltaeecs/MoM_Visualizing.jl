@@ -26,7 +26,7 @@ leafLevel   =   octree.levels[nLevels];
 ZnearCSC     =   calZnearCSC(leafLevel, geosInfo, bfsInfo);
 
 # 构建矩阵向量乘积算子
-Zopt    =   MLMFAIterator(ZnearCSC, octree, geosInfo, bfsInfo);
+Zopt    =   MLFMAIterator(ZnearCSC, octree, geosInfo, bfsInfo);
 
 ## 根据近场矩阵和八叉树计算 SAI 左预条件
 Zprel   =   sparseApproximateInversePl(ZnearCSC, leafLevel)
@@ -52,9 +52,15 @@ fig2d = farfield2D(θs_obs, RCSdB, [L"\phi = %$(ϕ/π*180)^{\circ}" for ϕ in ϕ
 save(joinpath(SimulationParams.resultDir, "farfield2d.pdf"), fig2d)
 
 fig2d = farfield2D(θs_obs, RCSdB, RCSdB, [L"A (\phi = %$(ϕ/π*180)^{\circ})" for ϕ in ϕs_obs], 
-                    [L"B (\phi = %$(ϕ/π*180)^{\circ})" for ϕ in ϕs_obs]; x_unit = :rad)
+                    [L"B (\phi = %$(ϕ/π*180)^{\circ})" for ϕ in ϕs_obs]; x_unit = :rad, spratio = 0.2)
 save(joinpath(SimulationParams.resultDir, "farfield2dCompare.pdf"), fig2d)
 
 # 3D 绘图
 fig3d = farfield3D(θs_obs, ϕs_obs, RCSdB)
 save(joinpath(SimulationParams.resultDir, "farfield3d.png"), fig3d)
+
+
+Jgeos = geoElectricJCal(ICoeff, geosInfo)
+using LinearAlgebra
+JRealAmp = norm.(eachcol(real(Jgeos)))
+visualizeMesh(meshData, JRealAmp)

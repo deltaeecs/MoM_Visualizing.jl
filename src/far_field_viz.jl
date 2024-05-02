@@ -36,14 +36,14 @@ function farfield3D(θs, ϕs, data; size_inches = (3.5, 2.4), label = "RCS(dB)",
 
     #
     size_in_pixels = size_inches .* dpi
-    fig = Figure(resolution = size_in_pixels, fontsize = 3.2/25.4*dpi, theme = theme_light())
+    fig = Figure(size = size_in_pixels, fontsize = 3.2/25.4*dpi, theme = theme_light())
     axs = Axis3(fig[1, 1], aspect = :data)
 
     data_normalized = data .- minimum(data)
 
     pltobj = surface!(axs, data_normalized .* x, data_normalized .* y, data_normalized .* z; color = data, colormap = cmap, 
                         lightposition = CairoMakie.Vec3f(0, 0, 0), ambient = CairoMakie.Vec3f(0.65, 0.65, 0.65),
-                        backlight = 5.0f0, shading = true)
+                        backlight = 5.0f0, shading = MultiLightShading)
     Colorbar(fig[1, 2], pltobj, label = label, tickwidth = 2, tickalign = 1, width = 25, ticksize = 3.2/25.4*dpi, height = Relative(0.5))
 
     # hidedecorations!(axs)

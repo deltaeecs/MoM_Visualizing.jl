@@ -33,7 +33,7 @@ function linesplot(xs, ys::Vector{yT}, labels; xlabel = L"\text{x_label (x_unit)
     set_theme!(theme2d)
 
     size_pt = 72 .* size_inches
-    f   =   Figure(resolution = size_pt)
+    f   =   Figure(size = size_pt)
     ax  =   createAxis(f[1, 1], xlabel, ylabel; yscale = yscale)
     for i in eachindex(labels)
         lines!(ax, xs, ys[i], linewidth = 1.5, linestyle = linestyles[i],
@@ -44,7 +44,7 @@ function linesplot(xs, ys::Vector{yT}, labels; xlabel = L"\text{x_label (x_unit)
     !isnothing(ylim) && ylims!(ax, ylim...)
 
     showlegend && axislegend(ax; position = legendposition, patchsize = (20, 6),
-    rowgap = 0, labelsize = 8, bgcolor = :transparent,
+    rowgap = 0, labelsize = 8, backgroundcolor = :transparent,
                                 framevisible = false, padding = (2., 2., 2., 2.))
 
     ax.xticks = isnothing(xticks) ? LinRange(first(xs), last(xs), 5) : xticks
@@ -71,7 +71,7 @@ function linesplot(ys::Vector{yT}, labels; xlabel = L"\text{x_label (x_unit)}",
     set_theme!(theme2d)
 
     size_pt = 72 .* size_inches
-    f   =   Figure(resolution = size_pt)
+    f   =   Figure(size = size_pt)
     ax  =   createAxis(f[1, 1], xlabel, ylabel; yscale = yscale)
     xs  =   1:100
     for i in eachindex(labels)
@@ -84,7 +84,7 @@ function linesplot(ys::Vector{yT}, labels; xlabel = L"\text{x_label (x_unit)}",
     !isnothing(ylim) && ylims!(ax, ylim...)
 
     showlegend && axislegend(ax; position = legendposition, patchsize = (20, 6),
-    rowgap = 0, labelsize = 8, bgcolor = :transparent,
+    rowgap = 0, labelsize = 8, backgroundcolor = :transparent,
                                 framevisible = false, padding = (2., 2., 2., 2.))
 
     ax.xticks = isnothing(xticks) ? LinRange(first(xs), last(xs), 5) : xticks
@@ -114,7 +114,7 @@ function linesplot(xs, ys::Vector{yT}, ys_compare::Vector{yT}, labels, labels_co
     set_theme!(theme2d)
 
     size_pt = 72 .* size_inches
-    f   =   Figure(resolution = size_pt)
+    f   =   Figure(size = size_pt)
     ax  =   createAxis(f[1, 1], xlabel, ylabel; yscale = yscale)
     for i in eachindex(labels)
         lines!(ax, xs, ys[i], linewidth = 1, linestyle = linestyles[i], label = labels[i], color = colormap[i])
@@ -132,7 +132,7 @@ function linesplot(xs, ys::Vector{yT}, ys_compare::Vector{yT}, labels, labels_co
 
     showlegend && begin
         axislegend(ax; position = legendposition,
-        patchsize = (10, 10), rowgap = 0, colgap = 0, labelsize = 9, bgcolor = :transparent, nbanks = 1,
+        patchsize = (10, 10), rowgap = 0, colgap = 0, labelsize = 9, backgroundcolor = :transparent, nbanks = 1,
         framevisible = false, padding = (0., 0., 0., 0.))
     end
     ax.xticks = isnothing(xticks) ? LinRange(first(xs), last(xs), 5) : xticks
@@ -161,7 +161,7 @@ function linesplot(ys::Vector{yT}, ys_compare::Vector{yT}, labels, labels_compar
     set_theme!(theme2d)
 
     size_pt = 72 .* size_inches
-    f   =   Figure(resolution = size_pt)
+    f   =   Figure(size = size_pt)
     ax  =   createAxis(f[1, 1], xlabel, ylabel; yscale = yscale)
 
     xs = 1:100
@@ -185,7 +185,7 @@ function linesplot(ys::Vector{yT}, ys_compare::Vector{yT}, labels, labels_compar
 
     showlegend && begin
         axislegend(ax; position = legendposition,
-        patchsize = (10, 10), rowgap = 0, colgap = 0, labelsize = 9, bgcolor = :transparent, nbanks = 1,
+        patchsize = (10, 10), rowgap = 0, colgap = 0, labelsize = 9, backgroundcolor = :transparent, nbanks = 1,
         framevisible = false, padding = (0., 0., 0., 0.))
     end
 
