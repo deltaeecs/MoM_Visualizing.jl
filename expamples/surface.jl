@@ -42,18 +42,24 @@ convergence_plot(ch)
 
 ## 观测角度
 θs_obs  =   LinRange{Precision.FT}(  0, π,  181)
-ϕs_obs  =   LinRange{Precision.FT}(  0, 2π,  361)
+ϕs_obs  =   LinRange{Precision.FT}(  0, 2π,  5)[1:end-1]
+θs_obsDeg = θs_obs ./ π .* 180
 
 # RCS
 _, _, _, RCSdB = radarCrossSection(θs_obs, ϕs_obs, ICoeff, geosInfo)
 
 # 2D 绘图
-fig2d = farfield2D(θs_obs, RCSdB, [L"\phi = %$(ϕ/π*180)^{\circ}" for ϕ in ϕs_obs]; x_unit = :rad)
+fig2d = farfield2D(θs_obsDeg, RCSdB, [L"\phi = %$(ϕ/π*180)^{\circ}" for ϕ in ϕs_obs]; x_unit = :rad)
 save(joinpath(SimulationParams.resultDir, "farfield2d.pdf"), fig2d)
 
-fig2d = farfield2D(θs_obs, RCSdB, RCSdB, [L"A (\phi = %$(ϕ/π*180)^{\circ})" for ϕ in ϕs_obs], 
+fig2d = farfield2D(θs_obsDeg, RCSdB, RCSdB, [L"A (\phi = %$(ϕ/π*180)^{\circ})" for ϕ in ϕs_obs], 
                     [L"B (\phi = %$(ϕ/π*180)^{\circ})" for ϕ in ϕs_obs]; x_unit = :rad, spratio = 0.2)
-save(joinpath(SimulationParams.resultDir, "farfield2dCompare.pdf"), fig2d)
+save(joinpath(SimulationParams.resultDir, "farfield2dCompare2.pdf"), fig2d)
+
+fig2d = farfield2D(θs_obsDeg, RCSdB, RCSdB, RCSdB, [L"A (\phi = %$(ϕ/π*180)^{\circ})" for ϕ in ϕs_obs], 
+                    [L"B (\phi = %$(ϕ/π*180)^{\circ})" for ϕ in ϕs_obs], [L"C (\phi = %$(ϕ/π*180)^{\circ})" for ϕ in ϕs_obs]; x_unit = :rad, spratio = 0.2)
+save(joinpath(SimulationParams.resultDir, "farfield2dCompare3.pdf"), fig2d)
+
 
 # 3D 绘图
 fig3d = farfield3D(θs_obs, ϕs_obs, RCSdB)

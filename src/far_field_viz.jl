@@ -7,7 +7,7 @@
 function farfield2D(args...; xlabel = L"\theta(^{\circ})", 
     ylabel = L"\text{RCS (dBsm)}", x_unit = :deg, kargs...)
 
-    xs = if length(args) in [3, 5] && x_unit == :rad
+    xs = if isodd(length(args)) && x_unit == :rad
         args[1] .* 180 / π
     else
         args[1]
