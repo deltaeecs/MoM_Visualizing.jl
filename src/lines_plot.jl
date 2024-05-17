@@ -340,6 +340,9 @@ function get_uni_xsys_sample(xs, ys; spratio = 0.3)
 
     !(0 <= spratio <= 1) && throw("spratio must be in 0~1.")
 
+    if spratio == 1
+        return xs, ys
+    end
     # get total length
     diffxs = diff(xs)
     diffys = diff(ys)
